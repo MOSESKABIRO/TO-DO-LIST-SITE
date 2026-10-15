@@ -1,0 +1,209 @@
+/* Colors, stored as named variables */
+:root {
+  --bg: #e9eef4;
+  --panel: #ffffff;
+  --ink: #18212d;
+  --muted: #7a8696;
+  --line: #d5dde7;
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --danger: #b4442f;
+}
+
+/* Dark mode: swap the values when the device is set to dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12181f;
+    --panel: #1b232d;
+    --ink: #e8edf3;
+    --muted: #8a96a6;
+    --line: #2c3743;
+    --accent: #2dd4bf;
+    --accent-ink: #0b1a18;
+    --danger: #f08a73;
+  }
+}
+
+/* Page basics */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+}
+
+main {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 8vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.5rem;
+  line-height: 1;
+}
+
+/* Keyboard focus ring */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Add-task row */
+.add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.add input {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  background: var(--panel);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+}
+
+.add input[type="text"] {
+  min-width: 12rem;
+}
+
+.add input[type="date"] {
+  flex: none;
+}
+
+.add button {
+  padding: 0 1.25rem;
+  min-height: 3rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Filter tabs */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.tabs button {
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  color: var(--bg);
+  background: var(--ink);
+}
+
+/* Task list */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+li:last-child {
+  border-bottom: 0;
+}
+
+li input[type="checkbox"] {
+  width: 1.35rem;
+  height: 1.35rem;
+  accent-color: var(--accent);
+  flex: none;
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+li.done .task-text {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.due {
+  font-size: 0.85rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.due.overdue {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.delete {
+  background: none;
+  border: 0;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 0.2rem 0.5rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.delete:hover {
+  color: var(--danger);
+}
+
+.empty {
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: var(--muted);
+}
+
+/* Footer */
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.9rem;
+  color: var(--muted);
+}
+
+.foot button {
+  font: inherit;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  text-decoration: underline;
+  cursor: pointer;
+}

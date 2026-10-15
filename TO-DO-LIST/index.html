@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>To-do</h1>
+
+    <div class="add">
+      <input type="text" id="new-task" placeholder="What needs doing?" aria-label="New task" maxlength="200">
+      <input type="date" id="new-date" aria-label="Due date">
+      <button id="add-btn">Add task</button>
+    </div>
+
+    <div class="tabs">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="active">Active</button>
+      <button data-filter="done">Done</button>
+    </div>
+
+    <ul id="task-list"></ul>
+
+    <div class="foot">
+      <span id="count"></span>
+      <button id="clear-btn">Clear done</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
